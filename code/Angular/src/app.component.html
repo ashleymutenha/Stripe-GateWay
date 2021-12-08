@@ -1,0 +1,75 @@
+<div class = "row"><!-- Page Header          -->
+	<div class= "container-sm w-100">
+	<div class ="card-header header text-white bg-dark " align="center" style ="height:50px"><strong>
+		<div class="row">
+			<div class ="col-2 sm">
+	PAYGATEWAY </div>
+	<div class ="col-3 sm">
+		<button style= "width:120px" class ="btn btn text-white"> <strong><fa-icon [icon] ="faToggleOn"></fa-icon>Menu</strong></button>
+	</div>
+	<div class ="col-3 sm">
+		C 2021
+	</div>
+
+</div></strong></div></div></div>
+
+	<div class = "row mt-3">
+		<div class = "col-3 ">
+			<div class ="card col-md-7">
+			<div class ="card-header bg-dark text-white">Menu</div>
+			<div class ="card-content">
+				<ul class ="list-group list-group-flush lead">
+					<li class = "list-group-item">
+						<button class ="btn btn bg-white">Home<fa-icon [icon]="faHome"></fa-icon></button></li>
+					<li class ="list-group-item">
+						<button class ="btn btn bg-white">About<fa-icon [icon]="faBookmark"></fa-icon></button></li>
+					</ul>
+				</div>
+			</div></div>
+  
+		<div class ="col-5 products">
+			<div class ="row">
+			<div [ngSwitch] ="currentView">
+				<!-- View Section that shows Products on Sale-->
+				<ng-container *ngSwitchCase ="'home'">
+					
+					<div *ngFor = "let product of productDetails">
+						<div class = "card col-md-7 mt-3">
+							<div class ="card-header bg-success text-white">{{product.Name}}</div>
+							<div class ="card-content">
+								<table class ="table">
+									<tbody>
+										<tr>
+											<td>Description</td>
+											<td>{{product.Description}}</td>
+										</tr>
+										<tr>
+											<td>Price</td>
+											<td>$ {{product.Price}}</td>
+										</tr>
+										<tr>
+											<td>
+											<button class ="btn btn-info rounded-pill text-dark submit-button">Purchase</button></td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+								
+							</div>
+						</div></div></ng-container>
+				<ng-container *ngSwitchCase ="'serverDown'">
+				<div class ="card">
+					<div class = "card-header bg-danger text-white">
+						<fa-icon [icon] ="faNewspaper"></fa-icon>Critical Info</div>
+					<div class ="card-content">
+						<h1>Server Down</h1>
+					</div>
+				</div>
+					
+				</ng-container>
+			</div></div>
+		</div>
+
+		</div>
+	
+<router-outlet></router-outlet>
