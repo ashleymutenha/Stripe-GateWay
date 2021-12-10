@@ -40,8 +40,10 @@
 								<table class ="table">
 									<tbody>
 										<tr>
+
 											<td>Description</td>
-											<td>{{product.Description}}</td>
+											<td>
+												{{product.Description}} 
 										</tr>
 										<tr>
 											<td>Price</td>
@@ -49,14 +51,13 @@
 										</tr>
 										<tr>
 											<td>
-											<button class ="btn btn-info rounded-pill text-dark submit-button">Purchase</button></td>
+											<input type ="submit" value ="PURCHASE" class ="btn btn-info rounded-pill text-dark submit-button"(click) ="purchaseProduct(product)"></td>
 											<td></td>
 										</tr>
 									</tbody>
 								</table>
 								
-							</div>
-						</div></div></ng-container>
+						</div></div></div></ng-container>
 				<ng-container *ngSwitchCase ="'serverDown'">
 				<div class ="card">
 					<div class = "card-header bg-danger text-white">
