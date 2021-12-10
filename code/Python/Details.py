@@ -1,11 +1,9 @@
 class Products:
-
 	def __init__(self,con,cur):
 		self.con =con
 		self.cur =cur
 		self.products ={"Name":"","Description":"","Price":0}
 		self.final =[]
-
 
 	def getProducts(self):#fetching products from db
 		elements =[]
@@ -31,7 +29,12 @@ class Products:
 				counter+=1
 		self.final.insert(0,self.products)
 		return self.final
-	
+
+	def extractProduct(self,name):#extract a single product's details 
+		for i in self.getProducts():
+			if i["Name"]==name:
+				return i
+		
 	def addProduct(self,name,price):#function to add products to db
 		self.cur.execute("INSERT INTO products VALUES(%s,%d)",(name,[price],))
 		self.con.commit()
@@ -39,4 +42,3 @@ class Products:
 	def deleteProduct(self,name):#deleting product from db
 		self.cur.execute("DELETE FROM products where Name=%s",(name,))
 		self.con.commit()
-		
