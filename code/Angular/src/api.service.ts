@@ -1,5 +1,3 @@
-//api service that intergrates angular with flask
-
 import { Injectable } from '@angular/core';
 import {throwError as observableThrowError, Observable} from 'rxjs'
 import {catchError} from 'rxjs/operators'
@@ -10,6 +8,8 @@ const headers= new HttpHeaders({'Content-Type':'application/json'})
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class ApiService {
     _getProducts:string ="http://127.0.0.1:5000/getProducts"
     _postProducts:string ="http://127.0.0.1:5000/orderProduct"
